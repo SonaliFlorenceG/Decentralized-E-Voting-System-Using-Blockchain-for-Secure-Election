@@ -85,7 +85,7 @@ export const VotingInterface: React.FC<VotingInterfaceProps> = ({
     const loadingToast = toast.loading("Sending OTP...");
     
     try {
-      const response = await fetch("http://localhost:5000/send-otp", {
+      const response = await fetch("https://decentralized-e-voting-system-using.onrender.com/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phoneNumber: formattedPhone }),
@@ -152,7 +152,7 @@ export const VotingInterface: React.FC<VotingInterfaceProps> = ({
     const loadingToast = toast.loading("Verifying OTP...");
     
     try {
-      const response = await fetch("http://localhost:5000/verify-otp", {
+      const response = await fetch("https://decentralized-e-voting-system-using.onrender.com/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phoneNumber: formattedPhone, otp: cleanedOtp }),

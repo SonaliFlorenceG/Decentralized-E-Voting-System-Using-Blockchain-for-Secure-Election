@@ -24,7 +24,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col items-center justify-center text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wide drop-shadow-lg">
-            ELECTION COMMISSION OF INDIA
+            ELECTION COMMISSION
           </h1>
           <div className="flex justify-between items-center w-full mt-4">
           <motion.div

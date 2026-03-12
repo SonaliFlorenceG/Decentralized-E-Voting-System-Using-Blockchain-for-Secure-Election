@@ -48,7 +48,7 @@
                 return;
             }
 
-            axios.post('http://localhost:5000/send-otp', { phoneNumber })
+            axios.post('https://decentralized-e-voting-system-using.onrender.com/send-otp', { phoneNumber })
                 .then(response => {
                     document.getElementById('message').innerText = response.data.message;
                     document.getElementById('step1').style.display = "none";
@@ -69,7 +69,7 @@
                 return;
             }
 
-            axios.post('http://localhost:5000/verify-otp', { phoneNumber, otp })
+            axios.post('https://decentralized-e-voting-system-using.onrender.com/verify-otp', { phoneNumber, otp })
                 .then(response => {
                     document.getElementById('message').innerText = "OTP Verified Successfully!";
                 })
