@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            margin: 10px;
+            padding: 8px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>OTP Verification</h2>
+
+    <div id="step1">
+        <input type="text" id="phoneNumber" placeholder="Enter your phone number">
+        <button onclick="sendOTP()">Send OTP</button>
+    </div>
+
+    <div id="step2" style="display: none;">
+        <input type="text" id="otp" placeholder="Enter OTP">
+        <button onclick="verifyOTP()">Verify OTP</button>
+    </div>
+
+    <p id="message"></p>
+
+    <script>
+        function sendOTP() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+
+            if (!phoneNumber) {
+                document.getElementById('message').innerText = "Please enter your phone number.";
+                return;
+            }
+
+            axios.post('http://localhost:5000/send-otp', { phoneNumber })
+                .then(response => {
+                    document.getElementById('message').innerText = response.data.message;
+                    document.getElementById('step1').style.display = "none";
+                    document.getElementById('step2').style.display = "block";
+                })
+                .catch(error => {
+                    console.error(error);
+                    document.getElementById('message').innerText = "Failed to send OTP.";
+                });
+        }
+
+        function verifyOTP() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const otp = document.getElementById('otp').value;
+
+            if (!otp) {
+                document.getElementById('message').innerText = "Please enter the OTP.";
+                return;
+            }
+
+            axios.post('http://localhost:5000/verify-otp', { phoneNumber, otp })
+                .then(response => {
+                    document.getElementById('message').innerText = "OTP Verified Successfully!";
+                })
+                .catch(error => {
+                    console.error(error);
+                    document.getElementById('message').innerText = "Invalid OTP. Please try again.";
+                });
+        }
+    </script>
+
+</body>
+</html>
