@@ -85,7 +85,7 @@ export const VotingInterface: React.FC<VotingInterfaceProps> = ({
     const loadingToast = toast.loading("Sending OTP...");
     
     try {
-      const response = await fetch("https://decentralized-e-voting-system-using.onrender.com/send-otp", {
+      const response = await fetch("http://localhost:5000/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phoneNumber: formattedPhone }),
