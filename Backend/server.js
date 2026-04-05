@@ -8,7 +8,7 @@ app.use(cors());
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioPhone = '+14135531109';
+const twilioPhone = '+1 413 553 1109';
 const client = new twilio(accountSid, authToken);
 const otpStorage = new Map();
 
@@ -47,5 +47,4 @@ app.post('/verify-otp', (req, res) => {
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
-
 app.listen(5000, () => console.log('Server running on port 5000'));

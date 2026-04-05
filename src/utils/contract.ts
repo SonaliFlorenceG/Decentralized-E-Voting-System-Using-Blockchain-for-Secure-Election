@@ -1,5 +1,5 @@
 // Contract address and ABI
-export const CONTRACT_ADDRESS = '0x67d3E0cc9c8b810C8411Fa080a1c22Ee186e9f6B' as const;
+export const CONTRACT_ADDRESS = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512' as const;
 
 export const VotingSystemABI = [
 	{
